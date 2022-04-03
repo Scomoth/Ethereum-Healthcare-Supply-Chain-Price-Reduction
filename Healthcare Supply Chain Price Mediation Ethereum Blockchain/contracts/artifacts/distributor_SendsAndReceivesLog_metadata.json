@@ -1,0 +1,176 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "batch_id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "medicine_name",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "medicine_type",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "medicine_price",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "logistics_price",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expiry_daysleft",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "payment_address",
+						"type": "address"
+					}
+				],
+				"name": "distributor_received_med_message",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "producer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "distributor",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "healthcareprovider",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "batchid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "medicinename",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "medicinetype",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "medicineprice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "logisticsprice",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "daysleft",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "paymentaddress",
+						"type": "address"
+					}
+				],
+				"name": "DReceivesLog",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"TRUFFLE PROJECTS/Healthcare Supply Chain Price Mediation Ethereum Blockchain/contracts/distributor_SendsAndReceivesLog.sol": "distributor_SendsAndReceivesLog"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"TRUFFLE PROJECTS/Healthcare Supply Chain Price Mediation Ethereum Blockchain/contracts/distributor_SendsAndReceivesLog.sol": {
+			"keccak256": "0xac11c494fdbf7667322d36ceb0c684762b88c2c715373686131574f1fe96a0ff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d63f6fa249d4acb6e5db8d5bf31e0d7c3397a44b6db8c90dc131115a6e128ed0",
+				"dweb:/ipfs/QmaSBTWkPmdckLEvSPYQCr8QV7P2DX1EkWALxqhFrvSX64"
+			]
+		}
+	},
+	"version": 1
+}
