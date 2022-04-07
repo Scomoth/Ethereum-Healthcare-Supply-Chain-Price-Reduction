@@ -1,0 +1,109 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "batch_id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "transaction_succession_message",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "healthcareprovider",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "producer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "batchid",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalprice",
+						"type": "uint256"
+					}
+				],
+				"name": "Receives_Payment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"TRUFFLE PROJECTS/Healthcare Supply Chain Price Mediation Ethereum Blockchain/contracts/manufacturer_ReceivesPayment.sol": "manufacturer_receivespayment"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"TRUFFLE PROJECTS/Healthcare Supply Chain Price Mediation Ethereum Blockchain/contracts/manufacturer_ReceivesPayment.sol": {
+			"keccak256": "0xc8982f6407b20a95766d3a11444ab34170fa30942f5964e1bfae11d90db9de7f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://58ff9b1a9ec953dd2a5cbf16b3c77399c47244ea1a7d1c8bf13a8f34af965d9c",
+				"dweb:/ipfs/QmQkfc5CQMaVdQZvmzoCZCervtqNFCnYksbmnEf6hejQv2"
+			]
+		}
+	},
+	"version": 1
+}
