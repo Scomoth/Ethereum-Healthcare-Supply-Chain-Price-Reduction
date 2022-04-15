@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.6.12+commit.27d51765"
+		"version": "0.6.0+commit.26b70077"
 	},
 	"language": "Solidity",
 	"output": {
@@ -33,7 +33,7 @@
 						"type": "string"
 					}
 				],
-				"name": "transaction_succession_message",
+				"name": "transaction_concluded",
 				"type": "event"
 			},
 			{
@@ -70,19 +70,15 @@
 			}
 		],
 		"devdoc": {
-			"kind": "dev",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"TRUFFLE PROJECTS/Healthcare Supply Chain Price Mediation Ethereum Blockchain/contracts/manufacturer_ReceivesPayment.sol": "manufacturer_receivespayment"
+			"truffleprojects/tproject1/contracts/manufacturer_ReceivesPayment.sol": "manufacturer_receivespayment"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -96,12 +92,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"TRUFFLE PROJECTS/Healthcare Supply Chain Price Mediation Ethereum Blockchain/contracts/manufacturer_ReceivesPayment.sol": {
-			"keccak256": "0xc8982f6407b20a95766d3a11444ab34170fa30942f5964e1bfae11d90db9de7f",
-			"license": "MIT",
+		"truffleprojects/tproject1/contracts/manufacturer_ReceivesPayment.sol": {
+			"keccak256": "0x376cdbeb8f0b95daf06bdcab3e8ce8d8850a0bae0efd011c7ba6c7fbd66170d1",
 			"urls": [
-				"bzz-raw://58ff9b1a9ec953dd2a5cbf16b3c77399c47244ea1a7d1c8bf13a8f34af965d9c",
-				"dweb:/ipfs/QmQkfc5CQMaVdQZvmzoCZCervtqNFCnYksbmnEf6hejQv2"
+				"bzz-raw://b72694c031f1504166d729a91aec1bcd6f6b777281de56f69754d3beb01b99b8",
+				"dweb:/ipfs/QmZ2cWoReJf23yoNkCJAuXBPnmjZV6G3a4uPLenKVmMPHg"
 			]
 		}
 	},

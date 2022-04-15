@@ -97,7 +97,7 @@
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "id",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -110,7 +110,7 @@
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "logprice",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -205,12 +205,57 @@
 						"type": "uint256"
 					}
 				],
+				"name": "expiry",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAck",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
 				"name": "healthcareprovider_addresses",
 				"outputs": [
 					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "iu",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
 					}
 				],
 				"stateMutability": "view",
@@ -324,27 +369,50 @@
 						"type": "uint256"
 					}
 				],
-				"name": "med_id",
+				"name": "med_name",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "med_price",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "med_price",
+						"name": "",
 						"type": "uint256"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "med_name",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "med_type",
-						"type": "bytes32"
-					},
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "remainingdays",
+						"name": "",
 						"type": "uint256"
+					}
+				],
+				"name": "med_type",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
 					}
 				],
 				"stateMutability": "view",
@@ -379,11 +447,11 @@
 	},
 	"sources": {
 		"truffleprojects/tproject1/contracts/manufacturer_PriceNegotiator.sol": {
-			"keccak256": "0xcb6995e80167286fc904e4d8de9375d43b8fb1f0d3d000e87299e445e24b4f0f",
+			"keccak256": "0x2add1bec67bba5fb08ecdc6daa9b6b4da218b73587021d396989a175d113e148",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://21e1625a38e5b2110a8febae71490e96a42b7ac68bf751e19d36b15ab7e512a3",
-				"dweb:/ipfs/QmRPkHdDKG2SUjHeUuDq9YZqvY5dZ8mfZC1TCuUaYgTjrj"
+				"bzz-raw://cba417a00384afe84bfa40e560ac940d26ca04a9420d5e98d068154d1e133527",
+				"dweb:/ipfs/QmRPpcjY45rHQbkJ78XybHU8DG1rzm5wvzbNcK5bDV1uwN"
 			]
 		}
 	},

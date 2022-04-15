@@ -7,9 +7,9 @@ contract healthcareprovider_pricenegotiator{
         ACTIVE 
     }
     statuses status = statuses.NONE;
-    address healthcareprovider = 0x8f78EcF8129434802481650032dB4242f049FEFc;
-    address public sender = 0xD7cd9550327CA67a7b4983F33655Fa4A3b89ACde;
-    address public receiver;
+    address healthcareprovider = 0x8f78EcF8129434802481650032dB4242f049FEFc; //healthcareprovider address
+    address public sender;//h1address
+    address public receiver;//m1address
     uint public medicine_price;
     bytes32 public medicine_name;
     bytes32 public medicine_type;
@@ -41,8 +41,8 @@ contract healthcareprovider_pricenegotiator{
             status = statuses.ACTIVE;
             message = "Transaction Mutually Acknowledged.";
             emit TransactionAcceptanceReceived(sender, receiver, medicine_price, status, message);
-            status = statuses.NONE;
         } else if (keccak256(bytes(ack)) != keccak256(bytes("YES"))) {
+            status = statuses.NONE;
             ack = "NO";
         }
     }
@@ -55,6 +55,9 @@ contract healthcareprovider_pricenegotiator{
         expiry_daysleft = daysleft;
         quantity = amount;
         emit Transaction_Request_Initiated(sender, receiver, healthcareprovider, medicine_price, medicine_name, medicine_type, expiry_daysleft, quantity);
+    }
+    function set_contract_address(address _h1address) public {
+        sender = _h1address;
     }
     function h1event1() public view returns(address, address, address, uint, bytes32, bytes32, uint, uint) {
         return (sender, receiver, healthcareprovider, medicine_price, medicine_name, medicine_type, expiry_daysleft, quantity);

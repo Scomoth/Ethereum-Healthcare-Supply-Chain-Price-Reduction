@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.6.12+commit.27d51765"
+		"version": "0.6.0+commit.26b70077"
 	},
 	"language": "Solidity",
 	"output": {
@@ -195,14 +195,10 @@
 			}
 		],
 		"devdoc": {
-			"kind": "dev",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
@@ -223,7 +219,6 @@
 	"sources": {
 		"truffleprojects/tproject1/contracts/distributor_SendsAndReceivesLog.sol": {
 			"keccak256": "0x3fb7ad035ec91f59a75e503439981b80279e9a4c980d82cc971891847f29400f",
-			"license": "MIT",
 			"urls": [
 				"bzz-raw://570a2d84791e35e39eaee37280d2387d2bab0908880f4312f2f6f8e269df5d98",
 				"dweb:/ipfs/QmeA6rTUCZVqsCe2PNgrE7QBCNJftefxUxwq5ojMpnQc6m"

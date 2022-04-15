@@ -13,23 +13,18 @@ contract manufacturer_receivespayment {
         uint batch_id,
         string message
     );
-    modifier PriceVerification(uint _totalprice) {
-        require(msg.value >= _totalprice, "Not Enough Ether. Transaction Rejected.");
-        _;
-    }
     function Receives_Payment(
         address healthcareprovider,
         address producer,
         uint batchid,
         uint totalprice
-    ) public {
+    ) payable external {
         sender = healthcareprovider;
         receiver = producer;
         batch_id = batchid;
         total_price = totalprice;
-    }
-    receive() external payable PriceVerification (total_price) {
         message = "Transaction Accepted. Medicine Batch will be supplied.";
         emit transaction_concluded(sender, receiver, batch_id, message);
+        producer.transfer(msg.value);
     }
 }

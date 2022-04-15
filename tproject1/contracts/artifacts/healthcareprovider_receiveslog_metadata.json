@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.6.12+commit.27d51765"
+		"version": "0.6.0+commit.26b70077"
 	},
 	"language": "Solidity",
 	"output": {
@@ -33,7 +33,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "Transaction_Request",
+				"name": "Transaction_payment_initiated",
 				"type": "event"
 			},
 			{
@@ -94,7 +94,7 @@
 						"type": "address"
 					}
 				],
-				"name": "distributor_to_healthcareprovider_transaction",
+				"name": "distributor_to_healthcareprovider_transaction_received",
 				"type": "event"
 			},
 			{
@@ -170,6 +170,34 @@
 			},
 			{
 				"inputs": [],
+				"name": "h2event",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "transaction",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -177,19 +205,15 @@
 			}
 		],
 		"devdoc": {
-			"kind": "dev",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"TRUFFLE PROJECTS/Healthcare Supply Chain Price Mediation Ethereum Blockchain/contracts/healthcareprovider_ReceivesLog.sol": "healthcareprovider_receiveslog"
+			"truffleprojects/tproject1/contracts/healthcareprovider_ReceivesLog.sol": "healthcareprovider_receiveslog"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -203,12 +227,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"TRUFFLE PROJECTS/Healthcare Supply Chain Price Mediation Ethereum Blockchain/contracts/healthcareprovider_ReceivesLog.sol": {
-			"keccak256": "0x7aa4559de9b30986dec7cc4253d73bd603f58a62964021d908665154460afc59",
-			"license": "MIT",
+		"truffleprojects/tproject1/contracts/healthcareprovider_ReceivesLog.sol": {
+			"keccak256": "0x87d1a00c0edb504d23ee3d481a68c6bf4e12d11b2295c53a646ec07ceb979ac9",
 			"urls": [
-				"bzz-raw://2e5517e40b364c4c37972da311fc6c5436aa7d7f6eeaed7e893de073ee68d5a9",
-				"dweb:/ipfs/QmWHhVSw7DT85eUoiMB1XMbsNGYdV8dYJGaTTMgCZKmCgw"
+				"bzz-raw://17d4223cf3fb9181bc4ecc5b6f9784e16a3b0ac9dd0bdc49f2fec1e66c0abb51",
+				"dweb:/ipfs/QmdgFeTpWV4AgxeLQFoUtrS3dnqVNzJXVAFRDe4DD9MxAS"
 			]
 		}
 	},

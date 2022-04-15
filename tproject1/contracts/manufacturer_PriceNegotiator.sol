@@ -4,7 +4,7 @@ contract manufacturer_pricenegotiator{
     address presender;
     address sender;
     address receiver;
-    address producer = 0xEE543FBAcAa3C22F9119B21cFe9514a0123e4d70;
+    address producer = 0xEE543FBAcAa3C22F9119B21cFe9514a0123e4d70;//manufacturer address
     address healthcareprovider;
     address distributor;
     uint medicine_price;
@@ -15,6 +15,7 @@ contract manufacturer_pricenegotiator{
     uint quantity;
     uint temp = 0;
     uint temp1 = 0;
+    uint temp2 = 0;
     string aval;
     string ack = "NO";
     uint i = 0;
@@ -23,19 +24,36 @@ contract manufacturer_pricenegotiator{
     uint mp;
     uint no_of_medicines = 3;
     uint batch_id = 0;
-    struct medicine_batch {
+    string yes = "YES";
+    string no = "NO";
+    uint index = 0;
+    uint[3] public med_price = [3, 2, 1];
+    bytes32[3] public med_name = [bytes32(0x000000000000000000000000000000000000000041746f72766173746174696e), bytes32(0x000000000000000000000000000000000000000041746f72766173746174696e), bytes32(0x000000000000000000000000000000000000000000004c6973696e6f7072696c)];
+    bytes32[3] public med_type = [bytes32(0x000000000000000000000000000000000000000000000000004c697069746f72), bytes32(0x0000000000000000000000000000000000000000000000000000416d6f78696c), bytes32(0x0000000000000000000000000000000000000000000000005072696e6976696c)];
+    uint[3] public expiry = [180, 180, 180];
+    /*struct medicine_batch {
         uint med_price; 
         bytes32 med_name;
         bytes32 med_type;
         uint remainingdays;
     }
-    mapping(uint => medicine_batch) public med_id;
+    //medicine_batch[] public med_id;
+    medicine_batch[3] public med_id;*/
+    //med_id[1] = medicine_batch({med_price : 2, med_name : "Amoxicillin", med_type : "Amoxil", remainingdays : 180});
+    
+    //med_id[2] = medicine_batch({med_price : 1, med_name : "Lisinopril", med_type : "Prinivil", remainingdays : 180});
     //mapping(uint => mapping(uint => uint)) public logistics_price; 
     //mapping(uint => address) public distributor_address; 
     //mapping(uint => address) public healthcareprovider_address;
-    uint[][] public logistics_prices = [ [30,50], [50,30] ]; // 2 distributors and 2 healthcareproviders
+    uint[][] public logistics_prices = [[1,2],[2,1]]; // 2 distributors and 2 healthcareproviders
     address[] public distributor_addresses = [0x3D6e946f209B3cd44FFb97A70c4D7FB982d75E1D, 0xD63779a8CaB68c5B8bA71b0eDc5547bFAc749c22]; //modify addresses later on
     address[] public healthcareprovider_addresses = [0x8f78EcF8129434802481650032dB4242f049FEFc, 0x669E53B7a7A18b828764cc193b73119BBe3ee599]; // modify addresses later on
+    /*med_id[0] = medicine_batch(3, 0x000000000000000000000000000000000000000041746f72766173746174696e, 0x000000000000000000000000000000000000000000000000004c697069746f72, 180); 
+    med_id[1] = medicine_batch(2, 0x000000000000000000000000000000000000000000416d6f786963696c6c696e, 0x0000000000000000000000000000000000000000000000000000416d6f78696c, 180);        
+    med_id[2] = medicine_batch(1, 0x000000000000000000000000000000000000000000004c6973696e6f7072696c, 0x0000000000000000000000000000000000000000000000005072696e6976696c, 180);
+    bytes32 public iu = med_id[2].med_name;
+    uint public ip = med_id[2].med_price;*/
+    bytes32 public iu = med_name[2];
     event transaction_initiation_request (
         address producer,
         uint batch_id,
@@ -54,9 +72,6 @@ contract manufacturer_pricenegotiator{
     );
     function MPriceNegotiation(address healthcareprovider_negotiatoraddress, address manufacturer_negotiatoraddress, address healthcareprovider_address, uint medicineprice, bytes32 medicinename, bytes32 medicinetype, 
     uint daysleft, uint amount) public {
-        med_id[0] = medicine_batch({med_price : 3, med_name : "Atorvastatin", med_type : "Lipitor", remainingdays : 180}); 
-        med_id[1] = medicine_batch({med_price : 2, med_name : "Amoxicillin", med_type : "Amoxil", remainingdays : 180});
-        med_id[2] = medicine_batch({med_price : 1, med_name : "Lisinopril", med_type : "Prinivil", remainingdays : 180});
         presender = healthcareprovider_negotiatoraddress;
         sender = manufacturer_negotiatoraddress;
         healthcareprovider = healthcareprovider_address;
@@ -65,26 +80,28 @@ contract manufacturer_pricenegotiator{
         medicine_type = medicinetype;
         expiry_daysleft = daysleft;
         quantity = amount;
+        receiver = producer;
         ack = "NO";
+        aval = "NO";
         aval = Medicine_Availability();
         lprice = LogisticsPrice();
-        temp = k;
-        i=0;
-        require(keccak256(bytes(aval)) == keccak256(bytes("YES")));
+        index = k-1;
+        require(keccak256(bytes(aval)) == keccak256(bytes(yes)));
         require(lprice != 0);
-        distributor = distributor_addresses[i];
         i = 0;
         j = 0;
-        if(medicine_price >= med_id[temp].med_price){
+        if(medicine_price >= med_price[index]){
+            distributor = distributor_addresses[temp2];
+            ack = "YES";
             batch_id = BatchID();
             mp = medicine_price;
             emit healthcareprovider_transaction_request_reply(ack, medicine_price);
-            emit transaction_initiation_request(producer, batch_id, medicine_name, medicine_type, medicine_price, lprice, expiry_daysleft,
+            emit transaction_initiation_request(producer, batch_id, medicine_name, medicine_type, mp, lprice, expiry_daysleft,
             quantity, distributor, healthcareprovider);
-        } else if (medicine_price < med_id[temp].med_price) {
-            ack="NO";
-            mp = med_id[temp].med_price;
-            emit healthcareprovider_transaction_request_reply(ack, med_id[temp].med_price);           
+        } else if (medicine_price < med_price[index]) {
+            ack = "NO";
+            mp = med_price[index];
+            emit healthcareprovider_transaction_request_reply(ack, mp);           
         }
         temp = 0;
         temp1 = 0;
@@ -94,54 +111,58 @@ contract manufacturer_pricenegotiator{
     }
     modifier Medicine_Verification {
         temp = 0;
-        k = no_of_medicines-1;
-        while (k != 0) {
-            if (med_id[i].med_name == medicine_name){
-                temp = 0.0;
+
+        while (k < no_of_medicines) {
+
+            if (med_name[k] == medicine_name){
+            //if (bytes32(med_id[k].med_name) == bytes32(medicine_name)) {
+                temp = 1;
             }
-            k=k-1; 
+            k = k+1; 
         }
-        require(temp == 0.0, "Medicine Not Found");
+        require(uint(temp) == uint(1));
         _;
     }
     function Medicine_Availability() public Medicine_Verification returns (string memory ack_return) {
         ack_return = "YES";
-        return ack;    
+        return ack_return;    
     }
-    function BatchID() public returns (uint id) {
+    function BatchID() public returns (uint) {
         batch_id=batch_id+1;
-        return id;
+        return batch_id;
     }
-    function LogisticsPrice() public returns (uint logprice) {
+    function LogisticsPrice() public returns (uint) {
         temp = 0;
         temp1 = 0;
         j = 0;
-        while(j<2) {
-            if (healthcareprovider == healthcareprovider_addresses[j]){
-                temp1 = 0.0;
-                while(i<2) {
-                    temp = logistics_prices[i][j];
-
+        i = 0;
+        while(temp1==0) {
+            if (healthcareprovider == healthcareprovider_addresses[i]){
+                temp1 = 1;
+                temp = logistics_prices[i][j];
+                while(j<2) {
                     if (logistics_prices[i][j] >= temp) {
                         logistics_prices[i][j] = logistics_prices[i][j];
                     } else if (logistics_prices[i][j] < temp) {
                         temp = logistics_prices[i][j];
+                        temp2 = j;
                     }
-                    i=i+1;
+                    j=j+1;
                 }
             }
-            else if (healthcareprovider != healthcareprovider_addresses[j]){
-                j=j+1;
+            else if (healthcareprovider != healthcareprovider_addresses[i]){
+                i=i+1;
             } 
         }
-        i = 0;
-        j = 0;
         return temp;
+    }
+    function getAck() public view returns(string memory) {
+        return ack;
     }
     function m1event1() public view returns(string memory, uint) {
         return (ack, mp);
     }
-    function m2event() public view returns(address, uint, bytes32, bytes32, uint, uint, uint, uint, address, address) {
+    function m1event2() public view returns(address, uint, bytes32, bytes32, uint, uint, uint, uint, address, address) {
         return (producer, batch_id, medicine_name, medicine_type, medicine_price, lprice, expiry_daysleft, quantity, distributor, healthcareprovider);
     }
 }

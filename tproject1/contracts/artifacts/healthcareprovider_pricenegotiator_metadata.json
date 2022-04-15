@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.6.12+commit.27d51765"
+		"version": "0.6.0+commit.26b70077"
 	},
 	"language": "Solidity",
 	"output": {
@@ -324,17 +324,26 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_h1address",
+						"type": "address"
+					}
+				],
+				"name": "set_contract_address",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
-			"kind": "dev",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
@@ -354,11 +363,10 @@
 	},
 	"sources": {
 		"truffleprojects/tproject1/contracts/healthcareprovider_PriceNegotiator.sol": {
-			"keccak256": "0x7d0b3cb96d81dc8b0cb88aeb794571f9177d8af6a8a1f510b5363fef8ec5c702",
-			"license": "MIT",
+			"keccak256": "0x1dc28686e7369f8a95fbfa925ad95013f7ff4a81d0c85a46519050f1b4caca98",
 			"urls": [
-				"bzz-raw://62c898713e170c8e46175777fcae0197b37ee64aae398c9bf9891f42e71cf64e",
-				"dweb:/ipfs/QmWvR5wE6oYuDbi8WDyFeTBfSwjBiwuxZubnM7MkC2GMZi"
+				"bzz-raw://acfa86a0c8389645c2bbe13766466bf9399aa9811494ec761a5ff9fbc2cdff37",
+				"dweb:/ipfs/Qmdy7Tmp2M2YaGCiTZLRjZ4tRBZih2F17utA9jpNJRB7oB"
 			]
 		}
 	},

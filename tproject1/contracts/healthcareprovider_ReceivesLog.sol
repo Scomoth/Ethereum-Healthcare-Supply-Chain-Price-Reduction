@@ -40,8 +40,8 @@ contract healthcareprovider_receiveslog{
         uint amount,
         address paymentaddress
     ) public {
-        sender = distributor;
-        receiver = healthcareprovider;
+        receiver = distributor;
+        sender = healthcareprovider;
         batch_id = batchid;
         medicine_name = medicinename;
         medicine_type = medicinetype;
@@ -51,12 +51,11 @@ contract healthcareprovider_receiveslog{
         payment_address = paymentaddress;
         emit distributor_to_healthcareprovider_transaction_received(sender, receiver, batch_id, medicine_name, medicine_type, 
         total_price, expiry_daysleft, quantity, payment_address);
+
         //emit Transaction_Request(sender, paymentaddress, batch_id, total_price);
     }  
     function transaction() public {
-        require(getBalance()>=total_price,"Not Enough Ether.");
         emit Transaction_payment_initiated(sender, payment_address, batch_id, total_price);
-        payable(payment_address).transfer(total_price);
     }
     function h2event() public view returns(address, address, uint, uint) {
         return (sender, payment_address, batch_id, total_price);
