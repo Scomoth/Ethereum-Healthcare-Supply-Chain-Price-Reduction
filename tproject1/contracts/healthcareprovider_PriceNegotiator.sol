@@ -34,9 +34,9 @@ contract healthcareprovider_pricenegotiator{
         statuses status,
         string message
     );
-    function HPriceNegotiation(string memory acknowledgement, uint price) public {
-        ack = acknowledgement;
-        medicine_price = price;
+    function HPriceNegotiation(string memory _acknowledgement, uint _price) public {
+        ack = _acknowledgement;
+        medicine_price = _price;
         if (keccak256(bytes(ack)) == keccak256(bytes("YES"))) {
             status = statuses.ACTIVE;
             message = "Transaction Mutually Acknowledged.";
@@ -46,14 +46,14 @@ contract healthcareprovider_pricenegotiator{
             ack = "NO";
         }
     }
-    function TransactionRequest(address manufacturer_negotiatoraddress, uint medicineprice, bytes32 medicinename, bytes32 medicinetype,
-    uint daysleft, uint amount) public {
-        receiver = manufacturer_negotiatoraddress;
-        medicine_price = medicineprice;
-        medicine_name = medicinename;
-        medicine_type = medicinetype;
-        expiry_daysleft = daysleft;
-        quantity = amount;
+    function TransactionRequest(address _manufacturer_negotiatoraddress, uint _medicineprice, bytes32 _medicinename, bytes32 _medicinetype,
+    uint _daysleft, uint _amount) public {
+        receiver = _manufacturer_negotiatoraddress;
+        medicine_price = _medicineprice;
+        medicine_name = _medicinename;
+        medicine_type = _medicinetype;
+        expiry_daysleft = _daysleft;
+        quantity = _amount;
         emit Transaction_Request_Initiated(sender, receiver, healthcareprovider, medicine_price, medicine_name, medicine_type, expiry_daysleft, quantity);
     }
     function set_contract_address(address _h1address) public {

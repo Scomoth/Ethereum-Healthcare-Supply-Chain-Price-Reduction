@@ -4,7 +4,7 @@ contract manufacturer_pricenegotiator{
     address presender;
     address sender;
     address receiver;
-    address producer = 0xEE543FBAcAa3C22F9119B21cFe9514a0123e4d70;//manufacturer address
+    address producer = 0xA9e0ed8bAA6acfbE4293648a46b5d23Ad2F0D22B;//manufacturer address
     address healthcareprovider;
     address distributor;
     uint medicine_price;
@@ -70,16 +70,16 @@ contract manufacturer_pricenegotiator{
         string ack,
         uint medicine_price
     );
-    function MPriceNegotiation(address healthcareprovider_negotiatoraddress, address manufacturer_negotiatoraddress, address healthcareprovider_address, uint medicineprice, bytes32 medicinename, bytes32 medicinetype, 
-    uint daysleft, uint amount) public {
-        presender = healthcareprovider_negotiatoraddress;
-        sender = manufacturer_negotiatoraddress;
-        healthcareprovider = healthcareprovider_address;
-        medicine_price = medicineprice;
-        medicine_name = medicinename;
-        medicine_type = medicinetype;
-        expiry_daysleft = daysleft;
-        quantity = amount;
+    function MPriceNegotiation(address _healthcareprovider_negotiatoraddress, address _manufacturer_negotiatoraddress, address _healthcareprovider_address, uint _medicineprice, bytes32 _medicinename, bytes32 _medicinetype, 
+    uint _daysleft, uint _amount) public {
+        presender = _healthcareprovider_negotiatoraddress;
+        sender = _manufacturer_negotiatoraddress;
+        healthcareprovider = _healthcareprovider_address;
+        medicine_price = _medicineprice;
+        medicine_name = _medicinename;
+        medicine_type = _medicinetype;
+        expiry_daysleft = _daysleft;
+        quantity = _amount;
         receiver = producer;
         ack = "NO";
         aval = "NO";
@@ -116,16 +116,20 @@ contract manufacturer_pricenegotiator{
 
             if (med_name[k] == medicine_name){
             //if (bytes32(med_id[k].med_name) == bytes32(medicine_name)) {
-                temp = 1;
+                if (med_type[k] == medicine_type){
+                    if (expiry[k] == expiry_daysleft){
+                        temp = 1;
+                    }
+                }
             }
             k = k+1; 
         }
         require(uint(temp) == uint(1));
         _;
     }
-    function Medicine_Availability() public Medicine_Verification returns (string memory ack_return) {
-        ack_return = "YES";
-        return ack_return;    
+    function Medicine_Availability() public Medicine_Verification returns (string memory _ack) {
+        _ack = "YES";
+        return _ack;    
     }
     function BatchID() public returns (uint) {
         batch_id=batch_id+1;

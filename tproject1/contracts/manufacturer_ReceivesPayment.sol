@@ -3,10 +3,11 @@ pragma solidity ^0.6.0;
 
 contract manufacturer_receivespayment {
     address sender;
-    address receiver;
+    address payable receiver;
     string message;
     uint batch_id;
     uint total_price;
+    address paymentaddress;
     event transaction_concluded (
         address indexed sender,
         address indexed receiver,
@@ -14,17 +15,19 @@ contract manufacturer_receivespayment {
         string message
     );
     function Receives_Payment(
-        address healthcareprovider,
-        address producer,
-        uint batchid,
-        uint totalprice
+        address _healthcareprovider,
+        address _payment_address,
+        address payable _producer,
+        uint _batchid,
+        uint _totalprice
     ) payable external {
-        sender = healthcareprovider;
-        receiver = producer;
-        batch_id = batchid;
-        total_price = totalprice;
+        sender = _healthcareprovider;
+        paymentaddress = _payment_address;
+        receiver = _producer;
+        batch_id = _batchid;
+        total_price = _totalprice;
         message = "Transaction Accepted. Medicine Batch will be supplied.";
         emit transaction_concluded(sender, receiver, batch_id, message);
-        producer.transfer(msg.value);
+        receiver.transfer(msg.value);
     }
 }
