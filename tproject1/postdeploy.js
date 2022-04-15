@@ -1,6 +1,6 @@
 module.exports = async(callback) => {
 var Web3 = require('web3');
-var web3 = new Web3('http://127.0.0.1:7545');
+var web3 = new Web3('http://127.0.0.1:8545');
 //Importing JSON files
 var m1contractabi = require('./build/contracts/manufacturer_pricenegotiator.json');
 var m2contractabi = require('./build/contracts/manufacturer_sendslog.json');
@@ -16,12 +16,12 @@ d1contractabi = d1contractabi.abi;
 h1contractabi = h1contractabi.abi;
 h2contractabi = h2contractabi.abi;
 //Assigning deploying smart contract addresses
-var m1acc = '0x99A3A609899DA1F70E9740EfB0c33e768aeAfe82';
-var m2acc = '0xF7F9F55b0577Ab95735556C7e370B67018535Dcc';
-var m3acc = '0x60b07774e70c4c128CfE5Ed3E384F00E0EA2a017';
-var d1acc = '0x078F29838B39271fBe65666BB70BBf5d9D1722dc';
-var h1acc = '0x6017D94bA3171AB75C06d3196d7f7815874a87b9';
-var h2acc = '0xd9eA67094F3d800D2dBeb9394671C47b90EcF269';
+var m1acc = '0x5b4429C96a01152dbeB601A0B037adc43548E302';
+var m2acc = '0x7C7850421F5fab44aA9170303537Cb99F27C4779';
+var m3acc = '0xE9E7e3EA1307Fba345a3488851bCD8Ae651272E6';
+var d1acc = '0x40aEB0DeE4851D6fB37250137EA147a99fFB1376';
+var h1acc = '0x085E9F0473771428fA5847C627bB062ce8aDecBE';
+var h2acc = '0xAb4091329A98243218f3100D710dbD4d9F21cFC4';
 //Creating smart contract instances
 var m1contract = new web3.eth.Contract(m1contractabi, m1acc);
 var m2contract = new web3.eth.Contract(m2contractabi, m2acc);
@@ -63,12 +63,12 @@ var r3 = await m2contract.methods.m2event().call({from: acc1, gas: 3000000});
 await d1contract.methods.DReceivesLog(r3[0],r3[1],r3[2],r3[3],r3[4],r3[5],r3[6],r3[7],r3[8],r3[9],r3[10]).send({from: acc1, gas: 3000000});
 var r4 = await d1contract.methods.d1event().call({from: acc2, gas: 3000000});
 //Fifth Smart Contract Invocation
-await h2contract.methods.ReceivesLog(r4[0],r4[1],r4[2],r4[3],r4[4],r4[5],r4[6],r4[7],r4[8],r4[9]).send({from: acc2, gas: 3000000});
+await h2contract.methods.ReceivesLog(r4[0],r4[1],r4[2],r4[3],r4[4],r4[5],r4[6],r4[7],r4[8],r4[9], r4[10]).send({from: acc2, gas: 3000000});
 await h2contract.methods.transaction().send({from: acc3, gas: 3000000}); 
 var r5 = await h2contract.methods.h2event().call({from: acc3, gas: 3000000});
 //Sixth Smart Contract Invocation
-var weiValue = Web3.utils.toWei(r5[3], 'ether');
-await m3contract.methods.Receives_Payment(r5[0],r5[1],r5[2],r5[3]).send({from: acc3, gas: 3000000, value: weiValue});
+var weiValue = Web3.utils.toWei(r5[4], 'ether');
+await m3contract.methods.Receives_Payment(r5[0],r5[1],r5[2],r5[3],r5[4]).send({from: acc3, gas: 3000000, value: weiValue});
 //}
 /*else if (String(i1[0]) != String(yes)) {
     var i2 = await m1contract.methods.m1event1().call({from: acc1, gas: 3000000});
